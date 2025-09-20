@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentasi Pancasila - Sila ke-2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            color: #073B4C;
+            background-color: transparent;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+        .tab-button:hover {
+            background-color: #e0f7fa;
+        }
+        .tab-button.active {
+            background-color: #118AB2;
+            color: white;
+            border-color: #118AB2;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .slide-content {
+            background-color: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 2rem 2.5rem;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1rem;
+        }
+        .nav-button {
+            position: fixed;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 30;
+            background-color: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(4px);
+            border-radius: 50%;
+            width: 3.5rem;
+            height: 3.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+        .nav-button:hover {
+            background-color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+        .nav-button:active {
+            transform: translateY(-50%) scale(1.0);
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-5xl">
+
+        <div id="tabs-container" class="mb-6 bg-white/70 backdrop-blur-sm p-2 rounded-full shadow-inner flex flex-wrap justify-center gap-2">
+            <button class="tab-button active" onclick="showSlide('slide1')">Judul</button>
+            <button class="tab-button" onclick="showSlide('slide2')">Pendahuluan</button>
+            <button class="tab-button" onclick="showSlide('slide3')">Penyimpangan #1</button>
+            <button class="tab-button" onclick="showSlide('slide4')">Penyimpangan #2</button>
+            <button class="tab-button" onclick="showSlide('slide5')">Penerapan #1</button>
+            <button class="tab-button" onclick="showSlide('slide6')">Penerapan #2</button>
+            <button class="tab-button" onclick="showSlide('slide7')">Aksi Nyata</button>
+            <button class="tab-button" onclick="showSlide('slide8')">Kesimpulan</button>
+        </div>
+
+        <div id="slide-container">
+            <div id="slide1" class="slide-content">
+                <div class="text-center">
+                    <div class="flex justify-center items-center gap-8 mb-6">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Lambang_Garuda_Pancasila.svg/1200px-Lambang_Garuda_Pancasila.svg.png" alt="Logo Garuda Pancasila" class="h-28">
+                        <img src="https://upload.wikimedia.org/wikipedia/id/thumb/0/0b/Logo_UPN_Veteran_Jakarta.png/1200px-Logo_UPN_Veteran_Jakarta.png" alt="Logo UPNVJ" class="h-28">
+                    </div>
+                    <h1 class="text-3xl font-extrabold text-[#073B4C] mb-2">Presentasi Mata Kuliah Pancasila</h1>
+                    <p class="text-xl font-semibold text-[#118AB2] mb-8">Studi Kasus Sila ke-2: Kemanusiaan yang Adil dan Beradab</p>
+                    <div class="bg-gray-100 inline-block p-6 rounded-lg">
+                        <h2 class="text-lg font-bold mb-3">Kelompok 2:</h2>
+                        <ul class="text-left space-y-1">
+                            <li>1. Bila</li>
+                            <li>2. Aren</li>
+                            <li>3. Agung</li>
+                            <li>4. Razes</li>
+                            <li>5. Zeva</li>
+                            <li>6. Rio</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide2" class="slide-content hidden">
+                <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-6">Membedah Sila ke-2: Kemanusiaan yang Adil dan Beradab</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-[#118AB2] mb-3">Apa Makna "Adil"?</h3>
+                        <p class="mb-4">Adil berarti mengakui adanya persamaan derajat, hak, dan kewajiban antara sesama manusia. Ini adalah tentang memberikan setiap orang apa yang menjadi haknya tanpa memandang latar belakang apapun, seperti suku, agama, ras, gender, atau status sosial.</p>
+                        
+                        <h3 class="text-2xl font-semibold text-[#06D6A0] mb-3">Apa Makna "Beradab"?</h3>
+                        <p>Beradab berkaitan dengan akhlak, kesopanan, dan budi pekerti luhur. Ini berarti dalam menjalankan hak dan kewajiban, kita harus selalu didasari oleh nilai-nilai moral dan etika, seperti tenggang rasa, saling menghormati, dan tidak semena-mena terhadap orang lain.</p>
+                    </div>
+                    <div class="text-center">
+                         <img src="https://placehold.co/600x400/06D6A0/FFFFFF?text=Adil+%26+Beradab" alt="[Gambar simbol keseimbangan dan hati]" class="rounded-lg shadow-lg mx-auto">
+                         <p class="text-sm mt-2 text-gray-500">Sila ke-2 menuntut keseimbangan antara hak dan kewajiban yang didasari akhlak mulia.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide3" class="slide-content hidden">
+                <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-6">Penyimpangan #1: Perundungan (Bullying)</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                     <div>
+                        <h3 class="text-2xl font-semibold text-[#EF476F] mb-3">Bentuk Penindasan Manusia</h3>
+                        <p class="mb-4">Perundungan adalah contoh nyata pengabaian nilai kemanusiaan. Pelaku secara sadar merendahkan martabat korban, memperlakukannya secara tidak adil dan tidak beradab. Ini adalah pelanggaran hak asasi untuk merasa aman.</p>
+                        <h4 class="font-semibold text-lg mb-2">Dampak Serius Perundungan:</h4>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><b>Psikologis:</b> Depresi, kecemasan, hilangnya kepercayaan diri.</li>
+                            <li><b>Sosial:</b> Menarik diri dari pergaulan, sulit percaya pada orang lain.</li>
+                            <li><b>Fisik:</b> Luka fisik hingga gangguan kesehatan akibat stres.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="chart-container">
+                            <canvas id="bullyingChart"></canvas>
+                        </div>
+                        <p class="text-center text-sm mt-2 text-gray-600">Sumber: Federasi Serikat Guru Indonesia (FSGI), 2023</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="slide4" class="slide-content hidden">
+                <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-6">Penyimpangan #2: Diskriminasi</h2>
+                 <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="text-center">
+                         <img src="https://placehold.co/600x400/EF476F/FFFFFF?text=Diskriminasi" alt="[Gambar orang-orang beragam yang dikucilkan]" class="rounded-lg shadow-lg mx-auto">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-[#EF476F] mb-3">Membeda-bedakan Sesama</h3>
+                        <p class="mb-4">Diskriminasi adalah perlakuan tidak adil terhadap individu atau kelompok berdasarkan karakteristik tertentu seperti ras, etnis, agama, atau gender. Ini secara langsung melanggar prinsip kesetaraan derajat manusia.</p>
+                        <h4 class="font-semibold text-lg mb-2">Contoh dalam Kehidupan Nyata:</h4>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Menolak calon pekerja karena suku atau agamanya.</li>
+                            <li>Memberikan pelayanan publik yang berbeda berdasarkan status ekonomi.</li>
+                            <li>Mengucilkan seseorang di lingkungan sosial karena perbedaannya.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+             <div id="slide5" class="slide-content hidden">
+                <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-6">Penerapan #1: Gotong Royong</h2>
+                 <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-[#06D6A0] mb-3">Wujud Kebersamaan Setara</h3>
+                        <p class="mb-4">Gotong royong adalah tradisi luhur dimana masyarakat bekerja bersama untuk mencapai tujuan bersama. Dalam kegiatan ini, semua individu berbaur dan berkontribusi tanpa memandang status atau jabatan.</p>
+                        <h4 class="font-semibold text-lg mb-2">Nilai Sila ke-2 dalam Gotong Royong:</h4>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><b>Kesetaraan:</b> Semua orang bekerja bahu-membahu.</li>
+                             <li><b>Tolong-menolong:</b> Saling membantu meringankan beban.</li>
+                            <li><b>Persatuan:</b> Memperkuat ikatan sosial dan rasa kemanusiaan.</li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <img src="https://placehold.co/600x400/06D6A0/FFFFFF?text=Gotong+Royong" alt="[Gambar warga bekerja bakti membersihkan lingkungan]" class="rounded-lg shadow-lg mx-auto">
+                    </div>
+                </div>
+            </div>
+            
+             <div id="slide6" class="slide-content hidden">
+                <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-6">Penerapan #2: Menjenguk Orang Sakit</h2>
+                 <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div class="text-center">
+                         <img src="https://placehold.co/600x400/118AB2/FFFFFF?text=Empati" alt="[Gambar seseorang memberikan dukungan kepada teman yang sakit]" class="rounded-lg shadow-lg mx-auto">
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold text-[#118AB2] mb-3">Tindakan Empati Sederhana</h3>
+                        <p class="mb-4">Menjenguk teman, tetangga, atau kerabat yang sakit adalah tindakan kecil yang penuh makna. Ini menunjukkan kepedulian dan empati kita, mengakui bahwa mereka adalah sesama manusia yang patut dihormati dan didukung.</p>
+                        <h4 class="font-semibold text-lg mb-2">Cerminan Sikap Beradab:</h4>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Menunjukkan rasa kasih sayang dan kepedulian.</li>
+                            <li>Memberikan dukungan moril untuk kesembuhan.</li>
+                             <li>Mempererat tali persaudaraan tanpa memandang status.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div id="slide7" class="slide-content hidden">
+                 <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-6">Bagaimana Kita Bisa Beraksi?</h2>
+                 <p class="text-center text-lg mb-8 max-w-3xl mx-auto">Menerapkan Sila ke-2 dimulai dari tindakan sederhana dalam kehidupan sehari-hari. Berikut adalah beberapa langkah nyata yang bisa kita lakukan.</p>
+                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+                     <div class="bg-blue-50 p-6 rounded-xl">
+                        <div class="icon-circle bg-blue-200 text-blue-600">🤝</div>
+                        <h4 class="font-bold text-lg mb-2">Hargai Perbedaan</h4>
+                        <p class="text-sm">Sadarilah bahwa setiap orang unik dan berharga.</p>
+                     </div>
+                     <div class="bg-green-50 p-6 rounded-xl">
+                        <div class="icon-circle bg-green-200 text-green-600">❤️</div>
+                        <h4 class="font-bold text-lg mb-2">Tumbuhkan Empati</h4>
+                        <p class="text-sm">Cobalah memahami perasaan dan sudut pandang orang lain.</p>
+                     </div>
+                      <div class="bg-yellow-50 p-6 rounded-xl">
+                        <div class="icon-circle bg-yellow-200 text-yellow-600">🗣️</div>
+                        <h4 class="font-bold text-lg mb-2">Berani Bersuara</h4>
+                        <p class="text-sm">Tegur atau laporkan jika melihat ketidakadilan di sekitar kita.</p>
+                     </div>
+                     <div class="bg-red-50 p-6 rounded-xl">
+                        <div class="icon-circle bg-red-200 text-red-600">🆘</div>
+                        <h4 class="font-bold text-lg mb-2">Tolong Tanpa Pamrih</h4>
+                        <p class="text-sm">Bantulah sesama yang membutuhkan tanpa mengharap imbalan.</p>
+                     </div>
+                 </div>
+            </div>
+
+            <div id="slide8" class="slide-content hidden">
+                 <div class="text-center">
+                    <h2 class="text-3xl font-bold text-[#073B4C] mb-4">Kesimpulan</h2>
+                    <p class="text-lg max-w-3xl mx-auto mb-8">Sila "Kemanusiaan yang Adil dan Beradab" bukanlah sekadar hafalan, melainkan panduan moral untuk tindakan kita sehari-hari. Dengan menolak perundungan & diskriminasi serta mengedepankan empati & kesetaraan, kita turut membangun Indonesia yang lebih manusiawi, adil, dan beradab.</p>
+                    <div class="border-t pt-6 mt-6">
+                        <h3 class="font-semibold text-lg mb-2">Referensi</h3>
+                        <p class="text-sm text-gray-600">Badan Pembinaan Ideologi Pancasila (BPIP). (2021). Materi Sosialisasi Pancasila.</p>
+                         <p class="text-sm text-gray-600">Federasi Serikat Guru Indonesia (FSGI). (2023). Survei Kasus Kekerasan di Satuan Pendidikan.</p>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+    
+    <button id="prev-button" class="nav-button left-4 md:left-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+    </button>
+    <button id="next-button" class="nav-button right-4 md:right-8">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+        </svg>
+    </button>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide-content');
+        const buttons = document.querySelectorAll('.tab-button');
+        const slideIds = Array.from(slides).map(s => s.id);
+
+        function showSlide(slideId) {
+            slides.forEach(slide => {
+                slide.classList.toggle('hidden', slide.id !== slideId);
+            });
+            buttons.forEach(button => {
+                button.classList.toggle('active', button.getAttribute('onclick').includes(slideId));
+            });
+            currentSlideIndex = slideIds.indexOf(slideId);
+        }
+
+        function showNextSlide() {
+            let nextIndex = currentSlideIndex + 1;
+            if (nextIndex >= slideIds.length) {
+                nextIndex = 0; 
+            }
+            showSlide(slideIds[nextIndex]);
+        }
+
+        function showPrevSlide() {
+            let prevIndex = currentSlideIndex - 1;
+            if (prevIndex < 0) {
+                prevIndex = slideIds.length - 1;
+            }
+            showSlide(slideIds[prevIndex]);
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+             document.getElementById('prev-button').addEventListener('click', showPrevSlide);
+             document.getElementById('next-button').addEventListener('click', showNextSlide);
+
+             const ctx = document.getElementById('bullyingChart');
+             if (ctx) {
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Siswa Korban Perundungan', 'Siswa Lainnya'],
+                        datasets: [{
+                            label: 'Kasus Perundungan',
+                            data: [30, 70],
+                            backgroundColor: ['#EF476F', '#118AB2'],
+                            borderColor: ['#FFFFFF'],
+                            borderWidth: 4,
+                            hoverOffset: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        cutout: '60%',
+                        plugins: {
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    padding: 20
+                                }
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    title: function(tooltipItems) {
+                                        const item = tooltipItems[0];
+                                        let label = item.chart.data.labels[item.dataIndex];
+                                        return Array.isArray(label) ? label.join(' ') : label;
+                                    }
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'FSGI: 30% Siswa Mengaku Jadi Korban Perundungan',
+                                padding: { top: 10, bottom: 20 },
+                                font: { size: 14, weight: 'bold' }
+                            }
+                        }
+                    }
+                });
+             }
+        });
+    </script>
+</body>
+</html>
