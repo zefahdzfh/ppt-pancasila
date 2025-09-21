@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Presentasi Pancasila - Sila ke-2</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -14,7 +13,7 @@
             font-family: 'Inter', sans-serif;
             background-color: #f0f4f8;
         }
-        .tab-button {
+       .tab-button {
             padding: 0.75rem 1.5rem;
             border-radius: 9999px;
             font-weight: 600;
@@ -24,16 +23,16 @@
             border: 2px solid transparent;
             cursor: pointer;
         }
-        .tab-button:hover {
+       .tab-button:hover {
             background-color: #e0f7fa;
         }
-        .tab-button.active {
+       .tab-button.active {
             background-color: #118AB2;
             color: white;
             border-color: #118AB2;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
-        .slide-content {
+       .slide-content {
             background-color: white;
             border-radius: 1.5rem;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -44,15 +43,7 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 400px;
-            margin: auto;
-            height: 300px;
-            max-height: 350px;
-        }
-        .icon-circle {
+       .icon-circle {
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -62,7 +53,7 @@
             font-size: 2rem;
             margin: 0 auto 1rem;
         }
-        .nav-button {
+       .nav-button {
             position: fixed;
             top: 50%;
             transform: translateY(-50%);
@@ -79,11 +70,11 @@
             cursor: pointer;
             transition: all 0.2s ease-in-out;
         }
-        .nav-button:hover {
+       .nav-button:hover {
             background-color: white;
             transform: translateY(-50%) scale(1.1);
         }
-        .nav-button:active {
+       .nav-button:active {
             transform: translateY(-50%) scale(1.0);
         }
     </style>
@@ -94,12 +85,12 @@
 
         <div id="tabs-container" class="mb-6 bg-white/70 backdrop-blur-sm p-2 rounded-full shadow-inner flex flex-wrap justify-center gap-2">
             <button class="tab-button active" onclick="showSlide('slide1')">Judul</button>
-            <button class="tab-button" onclick="showSlide('slide2')">Pendahuluan</button>
+            <button class="tab-button" onclick="showSlide('slide2')">Latar Belakang</button>
             <button class="tab-button" onclick="showSlide('slide3')">Penyimpangan #1</button>
             <button class="tab-button" onclick="showSlide('slide4')">Penyimpangan #2</button>
-            <button class="tab-button" onclick="showSlide('slide5')">Penerapan #1</button>
-            <button class="tab-button" onclick="showSlide('slide6')">Penerapan #2</button>
-            <button class="tab-button" onclick="showSlide('slide7')">Aksi Nyata</button>
+            <button class="tab-button" onclick="showSlide('slide5')">Penerapan</button>
+            <button class="tab-button" onclick="showSlide('slide6')">Solusi Jangka Pendek</button>
+            <button class="tab-button" onclick="showSlide('slide7')">Solusi Jangka Panjang</button>
             <button class="tab-button" onclick="showSlide('slide8')">Kesimpulan</button>
         </div>
 
@@ -110,8 +101,8 @@
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/National_emblem_of_Indonesia_Garuda_Pancasila.svg/330px-National_emblem_of_Indonesia_Garuda_Pancasila.svg.png" alt="Logo Garuda Pancasila" class="h-28">
                         <img src="https://upload.wikimedia.org/wikipedia/id/thumb/e/ed/Logo_UPNVJ.png/330px-Logo_UPNVJ.png" alt="Logo UPNVJ" class="h-28">
                     </div>
-                    <h1 class="text-3xl font-extrabold text-[#073B4C] mb-2">Presentasi Mata Kuliah Pancasila</h1>
-                    <p class="text-xl font-semibold text-[#118AB2] mb-8">Studi Kasus Sila ke-2: Kemanusiaan yang Adil dan Beradab</p>
+                    <h1 class="text-3xl font-extrabold text- mb-2">Presentasi Mata Kuliah Pancasila</h1>
+                    <p class="text-xl font-semibold text- mb-8">Studi Kasus Sila ke-2: Kemanusiaan yang Adil dan Beradab (Kasus Walikota Prabumulih)</p>
                     <div class="bg-gray-100 inline-block p-6 rounded-lg">
                         <h2 class="text-lg font-bold mb-3">Kelompok 2:</h2>
                         <ul class="text-left space-y-1">
@@ -127,136 +118,138 @@
             </div>
 
             <div id="slide2" class="slide-content hidden">
-                <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-6">Membedah Sila ke-2: Kemanusiaan yang Adil dan Beradab</h2>
+                <h2 class="text-3xl font-bold text-center text- mb-6">Latar Belakang Kasus</h2>
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div>
-                        <h3 class="text-2xl font-semibold text-[#118AB2] mb-3">Apa Makna "Adil"?</h3>
-                        <p class="mb-4">Adil berarti mengakui adanya persamaan derajat, hak, dan kewajiban antara sesama manusia. Ini adalah tentang memberikan setiap orang apa yang menjadi haknya tanpa memandang latar belakang apapun, seperti suku, agama, ras, gender, atau status sosial.</p>
-                        
-                        <h3 class="text-2xl font-semibold text-[#06D6A0] mb-3">Apa Makna "Beradab"?</h3>
-                        <p>Beradab berkaitan dengan akhlak, kesopanan, dan budi pekerti luhur. Ini berarti dalam menjalankan hak dan kewajiban, kita harus selalu didasari oleh nilai-nilai moral dan etika, seperti tenggang rasa, saling menghormati, dan tidak semena-mena terhadap orang lain.</p>
+                        <h3 class="text-2xl font-semibold text- mb-3">Apa yang Terjadi?</h3>
+                        <p class="mb-4">Pada 5 September 2025, di SMPN 1 Prabumulih, terjadi sebuah insiden yang menjadi sorotan nasional.[1]</p>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li>Anak Walikota Prabumulih, setelah latihan drum band, hendak kembali ke sekolah saat hujan deras menggunakan mobil yang dikemudikan sopir.[2]</li>
+                            <li>Pihak sekolah, di bawah arahan Kepala Sekolah Roni Ardiansyah, melarang mobil masuk ke area lapangan untuk menegakkan aturan disiplin yang berlaku bagi semua siswa.</li>
+                            <li>Insiden ini memicu reaksi emosional dari Walikota, yang merasa anaknya diperlakukan tidak semestinya.[1]</li>
+                        </ul>
                     </div>
                     <div class="text-center">
-                         <img src="https://i0.wp.com/takeitpersonelly.com/wp-content/uploads/2021/04/the-problem-with-respecting-diversity-.jpg?ssl=1" alt="[Gambar simbol keseimbangan dan hati]" class="rounded-lg shadow-lg mx-auto">
-                         <p class="text-sm mt-2 text-gray-500">Sila ke-2 menuntut keseimbangan antara hak dan kewajiban yang didasari akhlak mulia.</p>
+                         <img src="https://placehold.co/600x400/118AB2/FFFFFF?text=Insiden+di+Sekolah" alt="[Gambar gerbang sekolah]" class="rounded-lg shadow-lg mx-auto">
+                         <p class="text-sm mt-2 text-gray-500">Penegakan aturan di sekolah menjadi pemicu konflik.</p>
                     </div>
                 </div>
             </div>
 
             <div id="slide3" class="slide-content hidden">
-                <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-6">Penyimpangan #1: Perundungan (Bullying)</h2>
+                <h2 class="text-3xl font-bold text-center text- mb-6">Penyimpangan #1: Diskriminasi & Perlakuan Tidak Adil</h2>
                 <div class="grid md:grid-cols-2 gap-8 items-center">
                      <div>
-                        <h3 class="text-2xl font-semibold text-[#EF476F] mb-3">Bentuk Penindasan Manusia</h3>
-                        <p class="mb-4">Perundungan adalah contoh nyata pengabaian nilai kemanusiaan. Pelaku secara sadar merendahkan martabat korban, memperlakukannya secara tidak adil dan tidak beradab. Ini adalah pelanggaran hak asasi untuk merasa aman.</p>
-                        <h4 class="font-semibold text-lg mb-2">Dampak Serius Perundungan:</h4>
+                        <h3 class="text-2xl font-semibold text-[#EF476F] mb-3">Melanggar Aspek "Adil"</h3>
+                        <p class="mb-4">Reaksi Walikota menunjukkan adanya ekspektasi perlakuan khusus (privilese) untuk anaknya. Ini bertentangan dengan prinsip kesetaraan derajat manusia yang diamanatkan Sila ke-2.</p>
+                        <h4 class="font-semibold text-lg mb-2">Bentuk Ketidakadilan:</h4>
                         <ul class="list-disc list-inside space-y-2">
-                            <li><b>Psikologis:</b> Depresi, kecemasan, hilangnya kepercayaan diri.</li>
-                            <li><b>Sosial:</b> Menarik diri dari pergaulan, sulit percaya pada orang lain.</li>
-                            <li><b>Fisik:</b> Luka fisik hingga gangguan kesehatan akibat stres.</li>
+                            <li><b>Menuntut Pengecualian:</b> Menganggap aturan sekolah tidak berlaku bagi keluarganya.</li>
+                            <li><b>Tindakan Punitif:</b> Memutasi Kepala Sekolah Roni Ardiansyah bukan karena kinerja, melainkan karena menjalankan tugasnya secara adil.[2]</li>
+                            <li><b>Penyalahgunaan Wewenang:</b> Menggunakan jabatan untuk menghukum bawahan demi kepentingan pribadi.</li>
                         </ul>
                     </div>
-                    <div>
-                        <div class="chart-container">
-                            <canvas id="bullyingChart"></canvas>
-                        </div>
-                        <p class="text-center text-sm mt-2 text-gray-600">Sumber: Federasi Serikat Guru Indonesia (FSGI), 2023</p>
+                    <div class="text-center">
+                        <img src="https://placehold.co/600x400/EF476F/FFFFFF?text=Penyalahgunaan+Kekuasaan" alt="[Gambar timbangan yang tidak seimbang]" class="rounded-lg shadow-lg mx-auto">
+                        <p class="text-sm mt-2 text-gray-500">Keadilan terusik ketika ada tuntutan hak istimewa.</p>
                     </div>
                 </div>
             </div>
             
             <div id="slide4" class="slide-content hidden">
-                <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-6">Penyimpangan #2: Diskriminasi</h2>
+                <h2 class="text-3xl font-bold text-center text- mb-6">Penyimpangan #2: Perilaku Tidak Beradab</h2>
                  <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="text-center">
-                         <img src="https://placehold.co/600x400/EF476F/FFFFFF?text=Diskriminasi" alt="[Gambar orang-orang beragam yang dikucilkan]" class="rounded-lg shadow-lg mx-auto">
+                         <img src="https://placehold.co/600x400/FFD166/FFFFFF?text=Ancaman+Verbal" alt="[Gambar ikon marah dan ucapan kasar]" class="rounded-lg shadow-lg mx-auto">
                     </div>
                     <div>
-                        <h3 class="text-2xl font-semibold text-[#EF476F] mb-3">Membeda-bedakan Sesama</h3>
-                        <p class="mb-4">Diskriminasi adalah perlakuan tidak adil terhadap individu atau kelompok berdasarkan karakteristik tertentu seperti ras, etnis, agama, atau gender. Ini secara langsung melanggar prinsip kesetaraan derajat manusia.</p>
-                        <h4 class="font-semibold text-lg mb-2">Contoh dalam Kehidupan Nyata:</h4>
+                        <h3 class="text-2xl font-semibold text- mb-3">Melanggar Aspek "Beradab"</h3>
+                        <p class="mb-4">Sila ke-2 juga menuntut akhlak dan kesopanan. Cara Walikota merespons masalah ini jauh dari perilaku seorang pemimpin yang beradab.</p>
+                        <h4 class="font-semibold text-lg mb-2">Bentuk Perilaku Tidak Beradab:</h4>
                         <ul class="list-disc list-inside space-y-2">
-                            <li>Menolak calon pekerja karena suku atau agamanya.</li>
-                            <li>Memberikan pelayanan publik yang berbeda berdasarkan status ekonomi.</li>
-                            <li>Mengucilkan seseorang di lingkungan sosial karena perbedaannya.</li>
+                            <li><b>Intimidasi Verbal:</b> Mengancam secara eksplisit akan mencopot jabatan kepala sekolah ("karier aku copot").[1]</li>
+                            <li><b>Keputusan Emosional:</b> Mengaku bertindak karena "geram" dan "hilang kendali", bukan berdasarkan pertimbangan rasional dan bijaksana.[2, 1]</li>
+                            <li><b>Tidak Menghormati Profesionalisme:</b> Merendahkan martabat seorang pendidik yang sedang menjalankan tugasnya.</li>
                         </ul>
                     </div>
                 </div>
             </div>
             
              <div id="slide5" class="slide-content hidden">
-                <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-6">Penerapan #1: Gotong Royong</h2>
+                <h2 class="text-3xl font-bold text-center text- mb-6">Penerapan Sila ke-2 oleh Kepala Sekolah</h2>
                  <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div>
-                        <h3 class="text-2xl font-semibold text-[#06D6A0] mb-3">Wujud Kebersamaan Setara</h3>
-                        <p class="mb-4">Gotong royong adalah tradisi luhur dimana masyarakat bekerja bersama untuk mencapai tujuan bersama. Dalam kegiatan ini, semua individu berbaur dan berkontribusi tanpa memandang status atau jabatan.</p>
-                        <h4 class="font-semibold text-lg mb-2">Nilai Sila ke-2 dalam Gotong Royong:</h4>
+                        <h3 class="text-2xl font-semibold text- mb-3">Contoh Kemanusiaan yang Adil & Beradab</h3>
+                        <p class="mb-4">Di tengah penyimpangan, tindakan Kepala Sekolah Roni Ardiansyah justru menjadi contoh penerapan Sila ke-2 yang patut diteladani.</p>
+                        <h4 class="font-semibold text-lg mb-2">Nilai yang Diterapkan:</h4>
                         <ul class="list-disc list-inside space-y-2">
-                            <li><b>Kesetaraan:</b> Semua orang bekerja bahu-membahu.</li>
-                             <li><b>Tolong-menolong:</b> Saling membantu meringankan beban.</li>
-                            <li><b>Persatuan:</b> Memperkuat ikatan sosial dan rasa kemanusiaan.</li>
+                            <li><b>Keadilan & Anti-Diskriminasi:</b> Menerapkan aturan sekolah secara konsisten kepada semua siswa, tanpa memandang status sosial orang tua.</li>
+                             <li><b>Integritas Profesional:</b> Berpegang teguh pada aturan demi kebaikan bersama di lingkungan pendidikan.</li>
+                            <li><b>Sikap Beradab:</b> Tetap tenang, ikhlas, dan memaafkan meski menjadi korban perlakuan tidak adil.[3]</li>
                         </ul>
                     </div>
                     <div class="text-center">
-                        <img src="https://placehold.co/600x400/06D6A0/FFFFFF?text=Gotong+Royong" alt="[Gambar warga bekerja bakti membersihkan lingkungan]" class="rounded-lg shadow-lg mx-auto">
+                        <img src="https://placehold.co/600x400/06D6A0/FFFFFF?text=Integritas+Pendidik" alt="[Gambar seorang guru yang berdiri tegak]" class="rounded-lg shadow-lg mx-auto">
                     </div>
                 </div>
             </div>
             
              <div id="slide6" class="slide-content hidden">
-                <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-6">Penerapan #2: Menjenguk Orang Sakit</h2>
+                <h2 class="text-3xl font-bold text-center text- mb-6">Solusi Jangka Pendek: Koreksi & Rekonsiliasi</h2>
                  <div class="grid md:grid-cols-2 gap-8 items-center">
                     <div class="text-center">
-                         <img src="https://placehold.co/600x400/118AB2/FFFFFF?text=Empati" alt="[Gambar seseorang memberikan dukungan kepada teman yang sakit]" class="rounded-lg shadow-lg mx-auto">
+                         <img src="https://placehold.co/600x400/118AB2/FFFFFF?text=Intervensi+Negara" alt="[Gambar gedung Kemendagri]" class="rounded-lg shadow-lg mx-auto">
                     </div>
                     <div>
-                        <h3 class="text-2xl font-semibold text-[#118AB2] mb-3">Tindakan Empati Sederhana</h3>
-                        <p class="mb-4">Menjenguk teman, tetangga, atau kerabat yang sakit adalah tindakan kecil yang penuh makna. Ini menunjukkan kepedulian dan empati kita, mengakui bahwa mereka adalah sesama manusia yang patut dihormati dan didukung.</p>
-                        <h4 class="font-semibold text-lg mb-2">Cerminan Sikap Beradab:</h4>
+                        <h3 class="text-2xl font-semibold text- mb-3">Memulihkan Keadilan</h3>
+                        <p class="mb-4">Berkat sorotan publik yang masif, mekanisme pengawasan negara bergerak untuk mengoreksi tindakan diskriminatif yang terjadi.</p>
+                        <h4 class="font-semibold text-lg mb-2">Langkah-langkah Penyelesaian:</h4>
                         <ul class="list-disc list-inside space-y-2">
-                            <li>Menunjukkan rasa kasih sayang dan kepedulian.</li>
-                            <li>Memberikan dukungan moril untuk kesembuhan.</li>
-                             <li>Mempererat tali persaudaraan tanpa memandang status.</li>
+                            <li><b>Intervensi Kemendagri:</b> Memanggil Walikota dan Kepala Sekolah untuk pemeriksaan.[3]</li>
+                            <li><b>Pembatalan Mutasi:</b> Roni Ardiansyah dikembalikan ke jabatannya sebagai Kepala SMPN 1 Prabumulih.[2]</li>
+                            <li><b>Sanksi Administratif:</b> Walikota diberi sanksi formal berupa "teguran tertulis" karena melanggar prosedur.[1]</li>
+                            <li><b>Permintaan Maaf:</b> Walikota secara terbuka meminta maaf kepada publik dan Roni Ardiansyah.[2]</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
             <div id="slide7" class="slide-content hidden">
-                 <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-6">Bagaimana Kita Bisa Beraksi?</h2>
-                 <p class="text-center text-lg mb-8 max-w-3xl mx-auto">Menerapkan Sila ke-2 dimulai dari tindakan sederhana dalam kehidupan sehari-hari. Berikut adalah beberapa langkah nyata yang bisa kita lakukan.</p>
+                 <h2 class="text-3xl font-bold text-center text- mb-6">Solusi Jangka Panjang: Pencegahan Sistemik</h2>
+                 <p class="text-center text-lg mb-8 max-w-3xl mx-auto">Agar kasus serupa tidak terulang, diperlukan solusi yang bersifat sistemik untuk mencegah diskriminasi dan penyalahgunaan wewenang.</p>
                  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-                     <div class="bg-blue-50 p-6 rounded-xl">
-                        <div class="icon-circle bg-blue-200 text-blue-600">🤝</div>
-                        <h4 class="font-bold text-lg mb-2">Hargai Perbedaan</h4>
-                        <p class="text-sm">Sadarilah bahwa setiap orang unik dan berharga.</p>
-                     </div>
-                     <div class="bg-green-50 p-6 rounded-xl">
-                        <div class="icon-circle bg-green-200 text-green-600">❤️</div>
-                        <h4 class="font-bold text-lg mb-2">Tumbuhkan Empati</h4>
-                        <p class="text-sm">Cobalah memahami perasaan dan sudut pandang orang lain.</p>
-                     </div>
-                      <div class="bg-yellow-50 p-6 rounded-xl">
-                        <div class="icon-circle bg-yellow-200 text-yellow-600">🗣️</div>
-                        <h4 class="font-bold text-lg mb-2">Berani Bersuara</h4>
-                        <p class="text-sm">Tegur atau laporkan jika melihat ketidakadilan di sekitar kita.</p>
-                     </div>
-                     <div class="bg-red-50 p-6 rounded-xl">
-                        <div class="icon-circle bg-red-200 text-red-600">🆘</div>
-                        <h4 class="font-bold text-lg mb-2">Tolong Tanpa Pamrih</h4>
-                        <p class="text-sm">Bantulah sesama yang membutuhkan tanpa mengharap imbalan.</p>
-                     </div>
+                       <div class="bg-blue-50 p-6 rounded-xl">
+                           <div class="icon-circle bg-blue-200 text-blue-600">⚖️</div>
+                           <h4 class="font-bold text-lg mb-2">Perkuat Supremasi Hukum</h4>
+                           <p class="text-sm">Lindungi ASN dari intervensi sewenang-wenang dan tegakkan aturan kepegawaian (Permendikbudristek & BKN) tanpa pandang bulu.[4, 5]</p>
+                       </div>
+                       <div class="bg-green-50 p-6 rounded-xl">
+                           <div class="icon-circle bg-green-200 text-green-600">🏛️</div>
+                           <h4 class="font-bold text-lg mb-2">Budaya Anti-Privilese</h4>
+                           <p class="text-sm">Tanamkan pemahaman bahwa jabatan adalah amanah, bukan hak istimewa. Semua warga negara setara di hadapan aturan.</p>
+                       </div>
+                        <div class="bg-yellow-50 p-6 rounded-xl">
+                           <div class="icon-circle bg-yellow-200 text-yellow-600">🖥️</div>
+                           <h4 class="font-bold text-lg mb-2">Tingkatkan Transparansi</h4>
+                           <p class="text-sm">Wajibkan penggunaan sistem digital (seperti SIM KSP-SPK) untuk mutasi jabatan agar prosesnya objektif dan dapat diaudit.[6]</p>
+                       </div>
+                       <div class="bg-red-50 p-6 rounded-xl">
+                           <div class="icon-circle bg-red-200 text-red-600">🧠</div>
+                           <h4 class="font-bold text-lg mb-2">Internalisasi Pancasila</h4>
+                           <p class="text-sm">Jadikan Sila ke-2 sebagai kompas etik bagi pejabat publik dalam setiap pengambilan keputusan.</p>
+                       </div>
                  </div>
             </div>
 
             <div id="slide8" class="slide-content hidden">
                  <div class="text-center">
-                    <h2 class="text-3xl font-bold text-[#073B4C] mb-4">Kesimpulan</h2>
-                    <p class="text-lg max-w-3xl mx-auto mb-8">Sila "Kemanusiaan yang Adil dan Beradab" bukanlah sekadar hafalan, melainkan panduan moral untuk tindakan kita sehari-hari. Dengan menolak perundungan & diskriminasi serta mengedepankan empati & kesetaraan, kita turut membangun Indonesia yang lebih manusiawi, adil, dan beradab.</p>
+                    <h2 class="text-3xl font-bold text- mb-4">Kesimpulan</h2>
+                    <p class="text-lg max-w-3xl mx-auto mb-8">Kasus Walikota Prabumulih adalah cerminan nyata dari penyimpangan Sila ke-2, khususnya dalam bentuk **diskriminasi** dan **perilaku tidak beradab**. Namun, kasus ini juga menunjukkan contoh **penerapan** nilai keadilan oleh seorang pendidik dan membuktikan bahwa **solusi** melalui pengawasan publik dan penegakan hukum dapat berjalan untuk memulihkan kemanusiaan yang adil dan beradab.</p>
                     <div class="border-t pt-6 mt-6">
                         <h3 class="font-semibold text-lg mb-2">Referensi</h3>
-                        <p class="text-sm text-gray-600">Badan Pembinaan Ideologi Pancasila (BPIP). (2021). Materi Sosialisasi Pancasila.</p>
-                         <p class="text-sm text-gray-600">Federasi Serikat Guru Indonesia (FSGI). (2023). Survei Kasus Kekerasan di Satuan Pendidikan.</p>
+                        <p class="text-sm text-gray-600">Kompas.com. (2025). Kronologi Wali Kota Prabumulih Ancam Copot Kepala Sekolah.</p>
+                        <p class="text-sm text-gray-600">Merdeka.com. (2025). Wali Kota Prabumulih Arlan Akui Salah dan Minta Maaf.</p>
+                        <p class="text-sm text-gray-600">Tempo.co. (2025). Sederet Fakta Wali Kota Prabumulih Pecat Kepala Sekolah.</p>
                     </div>
                  </div>
             </div>
@@ -282,7 +275,7 @@
 
         function showSlide(slideId) {
             slides.forEach(slide => {
-                slide.classList.toggle('hidden', slide.id !== slideId);
+                slide.classList.toggle('hidden', slide.id!== slideId);
             });
             buttons.forEach(button => {
                 button.classList.toggle('active', button.getAttribute('onclick').includes(slideId));
@@ -309,52 +302,6 @@
         document.addEventListener('DOMContentLoaded', () => {
              document.getElementById('prev-button').addEventListener('click', showPrevSlide);
              document.getElementById('next-button').addEventListener('click', showNextSlide);
-
-             const ctx = document.getElementById('bullyingChart');
-             if (ctx) {
-                new Chart(ctx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['Siswa Korban Perundungan', 'Siswa Lainnya'],
-                        datasets: [{
-                            label: 'Kasus Perundungan',
-                            data: [30, 70],
-                            backgroundColor: ['#EF476F', '#118AB2'],
-                            borderColor: ['#FFFFFF'],
-                            borderWidth: 4,
-                            hoverOffset: 4
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        cutout: '60%',
-                        plugins: {
-                            legend: {
-                                position: 'bottom',
-                                labels: {
-                                    padding: 20
-                                }
-                            },
-                            tooltip: {
-                                callbacks: {
-                                    title: function(tooltipItems) {
-                                        const item = tooltipItems[0];
-                                        let label = item.chart.data.labels[item.dataIndex];
-                                        return Array.isArray(label) ? label.join(' ') : label;
-                                    }
-                                }
-                            },
-                            title: {
-                                display: true,
-                                text: 'FSGI: 30% Siswa Mengaku Jadi Korban Perundungan',
-                                padding: { top: 10, bottom: 20 },
-                                font: { size: 14, weight: 'bold' }
-                            }
-                        }
-                    }
-                });
-             }
         });
     </script>
 </body>
